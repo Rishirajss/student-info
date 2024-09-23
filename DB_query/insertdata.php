@@ -1,27 +1,29 @@
 <?php
-include 'connection.php';
-?>
 
-<?php
+    include("Connection.php");
+    
 
-print_r($_POST);
+    class Insertdata
+    {
 
-if (isset($_POST['save'])) {
-    $name = $_POST['username'];
-    $fname = $_POST['fname'];
-    $dob = $_POST['dob'];
-    $college = $_POST['college'];
-    $sub = $_POST['sub'];
-    $course = $_POST['course'];
+        private $db_handle;
+                
+                function __construct()
+                {
+                    $this->db_handle= new Connection();
+                }
 
-    $ins = "INSERT INTO `info_student`('name', 'father_name', 'dob', 'pre_college', 'pre_subject', 'curr_course') VALUES (`$name`, `$fname`, `$dob`, `$college`, `$sub`, `$course`)";
+                function insertstudent($name, $father_name, $dob, $pre_college, $pre_subject, $curr_course){
+                    
+                $ins = "INSERT INTO info_student (name, father_name, dob, pre_college, pre_subject, curr_course) VALUES ($name, $father_name, $dob, $pre_college, $pre_subject, $curr_course)";
+                $exe = $this->db_handle->runSingleQuery($ins);
 
-    $exe = mysqli_query($conn, $ins);
+                if(is_null($exe)){
+                    echo "Data inserted";
+                } else{
+                    echo "Error";
+                }
+                }
 
-    if ($exe) {
-        echo "Data save successfully";
-    } else {
-        echo "Data not inserted please check it";
-    }
-}
+            }            
 ?>
