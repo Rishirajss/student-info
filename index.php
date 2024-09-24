@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +10,10 @@
 
     <body>
         <div class="main">
-            <form action="<?php echo "DB_query/modals/Insert.php?action=student_save";?>" method="post">
+            <form action="<?php echo "/student Admission/modals/Usermodel.php?action=student_save";?>" method="post">
                 <div class="frmfield">
                     <label for="">Name</label>
-                    <input type="text" name="name" />
+                    <input type="text" name="username" />
                 </div>
                 <div class="frmfield">
                     <label for="">father name</label>
